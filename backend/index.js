@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import colors from 'colors';
 import connectDB from './config/db.js';
 import productRoute from './routes/product.js';
+import { errorHandler, notFound } from './middleware/errorMiddleware.js';
 
 const PORT = process.env.PORT || 5000;
 
@@ -11,6 +12,8 @@ connectDB();
 const app = express();
 
 app.use('/api/products', productRoute);
+app.use(notFound);
+app.use(errorHandler);
 
 app.listen(
   PORT,
