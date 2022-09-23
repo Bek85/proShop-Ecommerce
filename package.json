@@ -8,7 +8,9 @@
     "start": "node backend/index.js",
     "server": "nodemon backend/index.js",
     "client": "cd frontend/&& yarn dev",
-    "dev": "concurrently \"yarn server\" \"yarn client\""
+    "dev": "concurrently \"yarn server\" \"yarn client\"",
+    "data:import": "node backend/seeder",
+    "data:destroy": "node backend/seeder -d"
   },
   "keywords": [],
   "author": "Alex Smith",
