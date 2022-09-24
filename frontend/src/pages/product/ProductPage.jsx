@@ -1,24 +1,20 @@
+import { useEffect } from 'react';
 import { Button, Card, Col, Image, ListGroup, Row } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { listProductDetails } from 'pro-shop/redux/actions/productActions';
 import Rating from 'pro-shop/components/Rating';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
 
 export default function ProductPage() {
   let { id } = useParams();
-  const [product, setProduct] = useState({});
+  const dispatch = useDispatch();
+  const { product } = useSelector((state) => state.productDetails);
+
+  console.log(product);
 
   useEffect(() => {
-    try {
-      const getProduct = async () => {
-        const response = await axios.get(`/api/products/${id}`);
-        setProduct(response.data);
-      };
-      getProduct();
-    } catch (error) {
-      console.log(error);
-    }
-  }, [id]);
+    dispatch(listProductDetails(id));
+  }, [dispatch, id]);
 
   return (
     <>
