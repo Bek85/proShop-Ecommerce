@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './redux/store/store';
-import App from './App';
-import './index.css';
-import './assets/bootstrap.min.css';
+import store from 'pro-shop/redux/store/store';
+import App from 'pro-shop/App';
+import 'pro-shop/index.css';
+import 'pro-shop/assets/bootstrap.min.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>

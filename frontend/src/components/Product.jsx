@@ -1,6 +1,6 @@
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import Rating from './Rating';
+import Rating from 'pro-shop/components/Rating';
 
 export default function Product({ product }) {
   return (

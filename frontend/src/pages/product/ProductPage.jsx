@@ -1,6 +1,6 @@
 import { Button, Card, Col, Image, ListGroup, Row } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
-import Rating from '../../components/Rating';
+import Rating from 'pro-shop/components/Rating';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 

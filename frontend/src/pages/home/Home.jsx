@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Col, Row } from 'react-bootstrap';
-import Product from '../../components/Product';
-import { listProducts } from '../../redux/actions/productActions';
-import Loader from '../../components/Loader';
-import Message from '../../components/Message';
+import Product from 'pro-shop/components/Product';
+import { listProducts } from 'pro-shop/redux/actions/productActions';
+import Loader from 'pro-shop/components/Loader';
+import Message from 'pro-shop/components/Message';
 
 export default function Home() {
   const dispatch = useDispatch();
