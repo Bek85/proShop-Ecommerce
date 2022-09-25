@@ -18,7 +18,7 @@ import Message from 'pro-shop/components/Message';
 export default function ProductScreen() {
   let { id } = useParams();
   const navigate = useNavigate();
-  const [qty, setQty] = useState(0);
+  const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
   const { loading, error, product } = useSelector(
     (state) => state.productDetails
