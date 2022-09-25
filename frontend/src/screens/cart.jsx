@@ -16,7 +16,7 @@ import {
   Card,
 } from 'react-bootstrap';
 import { FaTrash } from 'react-icons/fa';
-import { addToCart } from 'pro-shop/redux/actions/cartActions';
+import { addToCart, removeFromCart } from 'pro-shop/redux/actions/cartActions';
 import Message from 'pro-shop/components/Message';
 
 export default function CartScreen() {
@@ -33,8 +33,8 @@ export default function CartScreen() {
     }
   }, [dispatch, id, qty]);
 
-  const removeFromCartHandler = (item) => {
-    console.log(item);
+  const removeFromCartHandler = (itemId) => {
+    dispatch(removeFromCart(itemId));
   };
 
   const checkoutHandler = () => {
