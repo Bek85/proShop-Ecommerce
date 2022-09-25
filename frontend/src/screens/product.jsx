@@ -7,7 +7,7 @@ import Rating from 'pro-shop/components/Rating';
 import Loader from 'pro-shop/components/Loader';
 import Message from 'pro-shop/components/Message';
 
-export default function ProductPage() {
+export default function ProductScreen() {
   let { id } = useParams();
   const dispatch = useDispatch();
   const { loading, error, product } = useSelector(

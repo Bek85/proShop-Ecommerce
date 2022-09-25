@@ -6,7 +6,7 @@ import { listProducts } from 'pro-shop/redux/actions/productActions';
 import Loader from 'pro-shop/components/Loader';
 import Message from 'pro-shop/components/Message';
 
-export default function Home() {
+export default function HomeScreen() {
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
