@@ -4,6 +4,7 @@ import Footer from 'pro-shop/components/Footer';
 import Header from 'pro-shop/components/Header';
 import HomeScreen from 'pro-shop/screens/home';
 import ProductScreen from 'pro-shop/screens/product';
+import CartScreen from 'pro-shop/screens/cart';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<HomeScreen />} />
             <Route path="/product/:id" element={<ProductScreen />} />
+            <Route path="/cart/*" element={<CartScreen />} />
           </Routes>
         </Container>
       </main>
