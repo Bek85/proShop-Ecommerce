@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from 'pro-shop/components/Message';
@@ -12,17 +12,14 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(true);
   const dispatch = useDispatch();
-  const location = useLocation();
   const navigate = useNavigate();
   const { loading, error, userInfo } = useSelector((state) => state.userLogin);
 
-  const redirect = location.search ? location.search.split('=')[1] : '/';
-
   useEffect(() => {
     if (userInfo) {
-      navigate(redirect);
+      navigate('/');
     }
-  }, [userInfo, redirect]);
+  }, [userInfo]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -65,10 +62,7 @@ export default function Login() {
       </Form>
       <Row className="py-3">
         <Col>
-          New Customer?{' '}
-          <Link to={redirect ? `/register?redirect=${redirect}` : '/register'}>
-            Register here.
-          </Link>
+          New Customer? <Link to="/register">Register here.</Link>
         </Col>
       </Row>
     </FormContainer>
