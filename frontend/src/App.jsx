@@ -6,6 +6,7 @@ import HomeScreen from 'pro-shop/screens/home';
 import ProductScreen from 'pro-shop/screens/product';
 import CartScreen from 'pro-shop/screens/cart';
 import LoginScreen from 'pro-shop/screens/login';
+import RegisterScreen from 'pro-shop/screens/register';
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<HomeScreen />} />
             <Route path="/login" element={<LoginScreen />} />
+            <Route path="/register" element={<RegisterScreen />} />
             <Route path="/product/:id" element={<ProductScreen />} />
             <Route path="/cart" element={<CartScreen />} />
             <Route path="/cart/:id" element={<CartScreen />} />
