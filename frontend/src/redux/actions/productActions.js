@@ -6,7 +6,7 @@ import {
   PRODUCT_DETAILS_REQUEST,
   PRODUCT_DETAILS_SUCCESS,
   PRODUCT_DETAILS_FAIL,
-} from 'pro-shop/utils/constants';
+} from 'pro-shop/utils/actionTypes';
 
 export const listProducts = () => async (dispatch) => {
   try {

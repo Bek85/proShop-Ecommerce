@@ -1,4 +1,4 @@
-import { CART_ADD_ITEM, CART_REMOVE_ITEM } from 'pro-shop/utils/constants';
+import { CART_ADD_ITEM, CART_REMOVE_ITEM } from 'pro-shop/utils/actionTypes';
 
 export const cartReducer = (state = { cartItems: [] }, action) => {
   switch (action.type) {
