@@ -5,6 +5,7 @@ import Header from 'pro-shop/components/Header';
 import HomeScreen from 'pro-shop/screens/home';
 import ProductScreen from 'pro-shop/screens/product';
 import CartScreen from 'pro-shop/screens/cart';
+import LoginScreen from 'pro-shop/screens/login';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Container>
           <Routes>
             <Route path="/" element={<HomeScreen />} />
+            <Route path="/login" element={<LoginScreen />} />
             <Route path="/product/:id" element={<ProductScreen />} />
             <Route path="/cart" element={<CartScreen />} />
             <Route path="/cart/:id" element={<CartScreen />} />
