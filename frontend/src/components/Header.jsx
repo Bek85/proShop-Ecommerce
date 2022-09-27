@@ -5,7 +5,7 @@ import { FaShoppingCart, FaSignOutAlt, FaUser } from 'react-icons/fa';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavDropdown } from 'react-bootstrap';
-import { logout } from 'pro-shop/redux/actions/userLoginActions';
+import { logout } from 'pro-shop/redux/actions/userActions';
 
 export default function Header() {
   const { userInfo } = useSelector((state) => state.userLogin);

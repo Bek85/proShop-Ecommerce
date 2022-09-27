@@ -4,7 +4,10 @@ import { Form, Button, Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from 'pro-shop/components/Message';
 import Loader from 'pro-shop/components/Loader';
-import { getUserDetails } from 'pro-shop/redux/actions/userLoginActions';
+import {
+  getUserDetails,
+  updateUserProfile,
+} from 'pro-shop/redux/actions/userActions';
 
 export default function Profile() {
   const [name, setName] = useState('');
@@ -17,6 +20,7 @@ export default function Profile() {
   const navigate = useNavigate();
   const { loading, error, user } = useSelector((state) => state.userDetails);
   const { userInfo } = useSelector((state) => state.userLogin);
+  const { success } = useSelector((state) => state.userUpdateProfile);
 
   useEffect(() => {
     if (!userInfo) {
@@ -37,6 +41,7 @@ export default function Profile() {
       setMessage('Passwords do not match');
     } else {
       // dispatch update profile
+      dispatch(updateUserProfile({ id: user._id, name, email, password }));
     }
   };
 
@@ -46,6 +51,7 @@ export default function Profile() {
         <h3>User Profile</h3>
         {message && <Message variant="danger">{message}</Message>}
         {error && <Message variant="danger">{error}</Message>}
+        {success && <Message variant="success">Profile Updated</Message>}
 
         <Form onSubmit={submitHandler}>
           <Form.Group className="mb-3" controlId="email">

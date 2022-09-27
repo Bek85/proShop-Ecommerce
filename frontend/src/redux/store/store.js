@@ -10,7 +10,8 @@ import {
   userLoginReducer,
   userRegisterReducer,
   userDetailsReducer,
-} from 'pro-shop/redux/reducers/userLoginReducers';
+  userUpdateProfileReducer,
+} from 'pro-shop/redux/reducers/userReducers';
 
 const reducer = combineReducers({
   productList: productListReducer,
@@ -19,6 +20,7 @@ const reducer = combineReducers({
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
   userDetails: userDetailsReducer,
+  userUpdateProfile: userUpdateProfileReducer,
 });
 
 const cartItemsFromStorage = localStorage.getItem('cartItems')

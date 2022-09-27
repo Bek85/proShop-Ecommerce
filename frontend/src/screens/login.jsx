@@ -4,7 +4,7 @@ import { Form, Button, Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from 'pro-shop/components/Message';
 import Loader from 'pro-shop/components/Loader';
-import { login } from 'pro-shop/redux/actions/userLoginActions';
+import { login } from 'pro-shop/redux/actions/userActions';
 import FormContainer from 'pro-shop/components/FormContainer';
 
 export default function Login() {
