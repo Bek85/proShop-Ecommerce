@@ -1,7 +1,12 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { FaShoppingCart, FaSignOutAlt, FaUser } from 'react-icons/fa';
+import {
+  FaShoppingCart,
+  FaSignOutAlt,
+  FaUser,
+  FaUserAlt,
+} from 'react-icons/fa';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavDropdown } from 'react-bootstrap';
@@ -30,7 +35,14 @@ export default function Header() {
                 </Nav.Link>
               </LinkContainer>
               {userInfo ? (
-                <NavDropdown title={userInfo.name} id="username">
+                <NavDropdown
+                  title={
+                    <>
+                      <FaUserAlt /> {userInfo.name}
+                    </>
+                  }
+                  id="username"
+                >
                   <LinkContainer to="/profile">
                     <NavDropdown.Item>
                       <FaUser /> Profile
