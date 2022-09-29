@@ -4,7 +4,7 @@ import { Form, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import FormContainer from 'pro-shop/components/FormContainer';
 import { saveShippingAddress } from 'pro-shop/redux/actions/cartActions';
-import CheckoutSteps from '../components/CheckoutSteps';
+import CheckoutSteps from 'pro-shop/components/CheckoutSteps';
 
 export default function Shipping() {
   const navigate = useNavigate();

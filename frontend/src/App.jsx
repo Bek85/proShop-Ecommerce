@@ -9,6 +9,7 @@ import LoginScreen from 'pro-shop/screens/login';
 import RegisterScreen from 'pro-shop/screens/register';
 import ProfileScreen from 'pro-shop/screens/profile';
 import ShippingScreen from 'pro-shop/screens/shipping';
+import PaymentScreen from 'pro-shop/screens/payment';
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
             <Route path="/product/:id" element={<ProductScreen />} />
             <Route path="/cart" element={<CartScreen />} />
             <Route path="/shipping" element={<ShippingScreen />} />
+            <Route path="/payment" element={<PaymentScreen />} />
             <Route path="/cart/:id" element={<CartScreen />} />
           </Routes>
         </Container>
