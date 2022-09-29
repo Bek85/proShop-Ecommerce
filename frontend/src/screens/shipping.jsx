@@ -4,15 +4,16 @@ import { Form, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import FormContainer from 'pro-shop/components/FormContainer';
 import { saveShippingAddress } from 'pro-shop/redux/actions/cartActions';
+import CheckoutSteps from '../components/CheckoutSteps';
 
 export default function Shipping() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { shippingAddress } = useSelector((state) => state.cart);
-  const [address, setAddress] = useState(shippingAddress?.address);
-  const [city, setCity] = useState(shippingAddress?.city);
-  const [postalCode, setPostalCode] = useState(shippingAddress?.postalCode);
-  const [country, setCountry] = useState(shippingAddress?.country);
+  const [address, setAddress] = useState(shippingAddress.address);
+  const [city, setCity] = useState(shippingAddress.city);
+  const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
+  const [country, setCountry] = useState(shippingAddress.country);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -30,6 +31,7 @@ export default function Shipping() {
   return (
     <FormContainer>
       <h1>Shipping</h1>
+      <CheckoutSteps step1 step2 />
       <Form onSubmit={submitHandler}>
         <Form.Group className="mb-3" controlId="address">
           <Form.Label>Address</Form.Label>
