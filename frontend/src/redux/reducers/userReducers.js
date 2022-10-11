@@ -13,7 +13,7 @@ import {
   USER_UPDATE_PROFILE_REQUEST,
   USER_UPDATE_PROFILE_SUCCESS,
   USER_UPDATE_PROFILE_RESET,
-} from 'pro-shop/utils/actionTypes';
+} from 'pro-shop/constants/action-types';
 
 export const userLoginReducer = (state = {}, action) => {
   switch (action.type) {
