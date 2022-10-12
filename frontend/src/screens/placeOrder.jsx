@@ -12,8 +12,6 @@ export default function PlaceOrder() {
   const { order, success, error } = useSelector((state) => state.orderCreate);
   const dispatch = useDispatch();
 
-  console.log(order);
-
   const addDecimals = (num) => {
     return (Math.round(num * 100) / 100).toFixed(2);
   };
