@@ -5,10 +5,9 @@
   "keywords": [],
   "author": "alex",
   "license": "MIT",
-  "type": "module",
   "scripts": {
-    "start": "node backend/server.js",
-    "server": "nodemon backend/server.js",
+    "start": "node -r esm backend/server.js",
+    "server": "nodemon -r esm backend/server.js",
     "client": "cd frontend/&& yarn dev",
     "dev": "concurrently \"yarn server\" \"yarn client\"",
     "render-postbuild": "NPM_CONFIG_PRODUCTION=false cd frontend/&& yarn && yarn build"
@@ -17,6 +16,7 @@
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.2",
+    "esm": "^3.2.25",
     "express": "^4.18.1",
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
