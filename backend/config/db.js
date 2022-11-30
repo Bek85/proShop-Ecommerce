@@ -1,8 +1,8 @@
-import mongoose from 'mongoose';
+import { connect } from 'mongoose';
 
 const connectDB = async () => {
   try {
-    const connection = await mongoose.connect(process.env.MONGO_URI, {
+    const connection = await connect(process.env.MONGO_URI, {
       dbName: 'proShop',
       useUnifiedTopology: true,
       useNewUrlParser: true,

@@ -16,6 +16,17 @@ export default ({ mode }) => {
         '/api': 'http://localhost:8000/',
       },
     },
-    plugins: [react(), eslint()],
+    plugins: [
+      react(),
+      {
+        // do not fail on serve (i.e. local development)
+        ...eslint({
+          failOnWarning: false,
+          failOnError: false,
+        }),
+        apply: 'serve',
+        enforce: 'post',
+      },
+    ],
   });
 };
