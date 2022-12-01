@@ -8,6 +8,8 @@ import {
   ORDER_DETAILS_FAIL,
 } from 'pro-shop/constants/action-types';
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL
+
 export const createOrder = (order) => async (dispatch, getState) => {
   try {
     dispatch({
@@ -25,7 +27,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/orders`, order, config);
+    const { data } = await axios.post(`${backendUrl}/api/orders`, order, config);
 
     dispatch({
       type: ORDER_CREATE_SUCCESS,
@@ -57,7 +59,7 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/orders/${id}`, config);
+    const { data } = await axios.get(`${backendUrl}/api/orders/${id}`, config);
 
     dispatch({
       type: ORDER_DETAILS_SUCCESS,

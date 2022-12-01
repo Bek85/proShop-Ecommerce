@@ -16,6 +16,8 @@ import {
   USER_UPDATE_PROFILE_RESET,
 } from 'pro-shop/constants/action-types';
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL
+
 export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({
@@ -29,7 +31,7 @@ export const login = (email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `${import.meta.env.VITE_BACKEND_URL}/api/users/login`,
+      `${backendUrl}/api/users/login`,
       { email, password },
       config
     );
@@ -71,7 +73,7 @@ export const register = (name, email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `${import.meta.env.VITE_BACKEND_URL}/api/users`,
+      `${backendUrl}/api/users`,
       { name, email, password },
       config
     );
@@ -115,7 +117,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/users/${id}`, config);
+    const { data } = await axios.get(`${backendUrl}/api/users/${id}`, config);
 
     dispatch({
       type: USER_DETAILS_SUCCESS,
@@ -149,7 +151,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.put(`${import.meta.env.VITE_BACKEND_URL}/api/users/profile`, user, config);
+    const { data } = await axios.put(`${backendUrl}/api/users/profile`, user, config);
 
     dispatch({
       type: USER_UPDATE_PROFILE_SUCCESS,

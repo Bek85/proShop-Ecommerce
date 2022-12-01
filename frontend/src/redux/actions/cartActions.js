@@ -6,8 +6,10 @@ import {
   CART_SAVE_PAYMENT_METHOD,
 } from 'pro-shop/constants/action-types';
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL
+
 export const addToCart = (id, qty) => async (dispatch, getState) => {
-  const { data } = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/products/${id}`);
+  const { data } = await axios.get(`${backendUrl}/api/products/${id}`);
 
   dispatch({
     type: CART_ADD_ITEM,
