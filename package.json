@@ -1,14 +1,14 @@
 {
   "name": "mern-proshop",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "server.mjs",
   "keywords": [],
   "author": "alex",
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": "node backend/server.js",
-    "server": "nodemon backend/server.js",
+    "start": "node backend/server.mjs",
+    "server": "nodemon backend/server.mjs",
     "client": "cd frontend/&& yarn dev",
     "dev": "concurrently \"yarn server\" \"yarn client\"",
     "render-postbuild": "NPM_CONFIG_PRODUCTION=false cd frontend/&& yarn && yarn build"

@@ -1,5 +1,5 @@
 import asyncHandler from 'express-async-handler';
-import Order from '../models/orderModel.js';
+import Order from '../models/orderModel.mjs';
 
 //* @desc Create new order
 //* @route POST /api/orders
@@ -58,7 +58,7 @@ export const getOrderbyId = asyncHandler(async (req, res) => {
 //* @route GET /api/orders/:id/pay
 //* @access Private
 
-export const upateOrderToPaid = asyncHandler(async (req, res) => {
+export const updateOrderToPaid = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id);
 
   if (order) {
