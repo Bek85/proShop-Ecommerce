@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { PayPalButton } from 'react-paypal-button-v2';
 import { Link, useParams } from 'react-router-dom';
 import { Button, Row, Col, ListGroup, Image, Card } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { getOrderDetails } from 'pro-shop/redux/actions/orderActions';
+import { getOrderDetails, payOrder } from 'pro-shop/redux/actions/orderActions';
 import Message from 'pro-shop/components/Message';
 import Loader from 'pro-shop/components/Loader';
+import { ORDER_PAY_RESET } from 'pro-shop/constants/action-types';
 
 export default function OrderDetails() {
   const { id: orderId } = useParams();
@@ -30,6 +32,7 @@ export default function OrderDetails() {
     };
 
     if (!order || successPay) {
+      dispatch({ type: ORDER_PAY_RESET });
       dispatch(getOrderDetails(orderId));
     } else if (!order.isPaid) {
       if (!window.paypal) {
@@ -50,6 +53,11 @@ export default function OrderDetails() {
       order.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0)
     );
   }
+
+  const successPaymentHandler = (paymentResult) => {
+    console.log(paymentResult);
+    dispatch(payOrder(orderId, paymentResult));
+  };
 
   return loading ? (
     <Loader />
@@ -159,8 +167,20 @@ export default function OrderDetails() {
                   <Col>${order.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
-              <ListGroup.Item></ListGroup.Item>
-              <ListGroup.Item></ListGroup.Item>
+
+              {!order.isPaid && (
+                <ListGroup.Item>
+                  {loadingPay && <Loader />}
+                  {!sdkReady ? (
+                    <Loader />
+                  ) : (
+                    <PayPalButton
+                      amount={order.totalPrice}
+                      onSuccess={successPaymentHandler}
+                    />
+                  )}
+                </ListGroup.Item>
+              )}
             </ListGroup>
           </Card>
         </Col>
