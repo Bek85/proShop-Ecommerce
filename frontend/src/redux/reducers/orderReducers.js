@@ -12,6 +12,7 @@ import {
   MY_ORDERS_REQUEST,
   MY_ORDERS_SUCCESS,
   MY_ORDERS_FAIL,
+  MY_ORDERS_RESET,
 } from 'pro-shop/constants/action-types';
 
 export const orderCreateReducer = (state = {}, action) => {
@@ -110,6 +111,10 @@ export const myOrdersReducer = (state = { orders: [] }, action) => {
       return {
         loading: false,
         error: action.payload,
+      };
+    case MY_ORDERS_RESET:
+      return {
+        orders: [],
       };
 
     default:
