@@ -8,7 +8,7 @@ import userRoutes from './routes/userRoutes.mjs';
 import orderRoutes from './routes/orderRoutes.mjs';
 import { errorHandler, notFound } from './middleware/errorMiddleware.mjs';
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.BACKEND_URL || 8000;
 
 // Middleware setup
 dotenv.config();
