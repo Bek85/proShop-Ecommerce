@@ -16,6 +16,7 @@ import {
   orderCreateReducer,
   orderDetailsReducer,
   orderPayReducer,
+  myOrdersReducer,
 } from 'pro-shop/redux/reducers/orderReducers';
 
 const reducer = combineReducers({
@@ -29,6 +30,7 @@ const reducer = combineReducers({
   orderCreate: orderCreateReducer,
   orderDetails: orderDetailsReducer,
   orderPay: orderPayReducer,
+  myOrders: myOrdersReducer,
 });
 
 const cartItemsFromStorage = localStorage.getItem('cartItems')
